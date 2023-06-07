@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados 2</title>
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tabla de Multiplicar del número <span th:text="${numeroTabla}"></span></h1>
+        <ul>
+            <li><a href="/verTablaMultiplicar?numeroTabla=5">Números Primos</a></li>
+            <li><a href="/">Inicio</a></li>
+        </ul>
+        <table>
+            <tr>
+                <th>Número</th>
+                <th>Respuesta</th>
+                <th>Par</th>
+            </tr>
+            <tr th:each="numero : ${tablaMultiplicar}">
+                <td th:text="${numeroTabla}"></td>
+                <td th:text="${numero.resultado}"></td>
+                <td>
+                    <input type="checkbox" th:checked="${numero.esPar}" th:disabled="${!numero.esPar}" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
